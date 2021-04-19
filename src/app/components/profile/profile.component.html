@@ -1,7 +1,8 @@
 <img [src]="Profile.avatar_url">
 <p>User: {{Profile.login}}</p>
-<p>Location: {{Profile.location}}</p>
-<p>Bio: {{Profile.bio}}</p>
+<p *ngIf="Profile.location">Location: {{Profile.location}}</p>
+<p *ngIf="Profile.bio">Bio: {{Profile.bio}}</p>
+<p>Repos: {{Profile.public_repos}}</p>
 
-<app-connections [Connections]="following" Title="Following"></app-connections>
-<app-connections [Connections]="followers" Title="Followers"></app-connections>
+<app-connections [Connections]="following" Title="Following" [Total]="Profile.following"></app-connections>
+<app-connections [Connections]="followers" Title="Followers" [Total]="Profile.followers"></app-connections>

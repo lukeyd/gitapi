@@ -10,7 +10,7 @@ export class ConnectionsComponent implements OnInit {
 
   @Input() Connections!: User[];
   @Input() Title!: string;
-
+  @Input() Total!: number;
   constructor() { }
 
   ngOnInit(): void {

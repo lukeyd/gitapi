@@ -8,8 +8,8 @@
         <ng-container *ngFor="let user of Connections; index as i">
           <img [src]="user.avatar_url" class="avatar" *ngIf="i < 4">
         </ng-container>
-        <ng-container *ngIf="Connections.length > 4">
-          +{{Connections.length - 4}}
+        <ng-container *ngIf="Total > 4">
+          +{{Total - 4}}
         </ng-container>
 
     </p>
