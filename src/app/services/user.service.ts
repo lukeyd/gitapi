@@ -8,12 +8,12 @@ import { User } from '../interfaces/user';
 })
 export class UserService {
   // tslint:disable-next-line:no-inferrable-types
-  private url: string = 'https://api.github.com/users';
+  private url: string = 'https://api.github.com/users/';
   constructor(private http: HttpClient) { }
 
 
   public Followers(user: string): Observable<User[]> {
-    const userUrl: string = this.url + '/users/' + user + '/followers';
+    const userUrl: string = this.url + user + '/followers';
     return this.http.get<User[]>(userUrl);
   }
 

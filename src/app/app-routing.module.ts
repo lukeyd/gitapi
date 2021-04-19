@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { FollowersResolver } from './resolvers/followers.resolver';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'profile/:user', component: ProfileComponent}
+  {path: 'profile/:user', component: ProfileComponent, resolve: {followers: FollowersResolver}}
 
 ];
 

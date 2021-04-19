@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SearchResults } from 'src/app/interfaces/search-results';
+import { User } from 'src/app/interfaces/user';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
@@ -11,14 +13,13 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class ProfileComponent implements OnInit {
 
-  public users!: Observable<SearchResults>;
-  public searchForm: FormGroup = new FormGroup({});
-  constructor(private dataService: SearchService, private form: FormBuilder){
+  public followers!: User[];
+  constructor(private route: ActivatedRoute){
 
   }
 
   ngOnInit(): void {
-
+    this.followers = this.route.snapshot.data.followers;
   }
 
 
