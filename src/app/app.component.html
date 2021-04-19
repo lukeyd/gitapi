@@ -1,16 +1,1 @@
-<div class="container search">
-  <form [formGroup]="searchForm">
-    <div class="input-group">
-      <input formControlName="search" type="text" class="form-control" placeholder="User Name" aria-label="User Name" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="Search()">Search</button>
-      </div>
-    </div>
- </form>
-  <div class="card-group">
-    <ng-container *ngFor="let user of (users  | async)?.items">
-      <app-user-card [UserInfo]='user'></app-user-card>
-    </ng-container>
-  </div>
-
-</div>
+<router-outlet></router-outlet>

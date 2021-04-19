@@ -5,11 +5,11 @@ import { SearchResults } from 'src/app/interfaces/search-results';
 import { SearchService } from 'src/app/services/search.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   public users!: Observable<SearchResults>;
   public searchForm: FormGroup = new FormGroup({});
@@ -18,8 +18,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.searchForm = this.form.group({
+      search: ['']
+    });
   }
 
-
+  public Search(): void {
+    this.users = this.dataService.User(this.searchForm.controls.search.value);
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
 
 
@@ -11,9 +12,8 @@ export class UserCardComponent implements OnInit {
 
   @Input()
   UserInfo!: User;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
 }
