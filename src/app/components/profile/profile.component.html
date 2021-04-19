@@ -1,2 +1,7 @@
-<p>profile</p>
-{{followers | json}}
+<img [src]="Profile.avatar_url">
+<p>User: {{Profile.login}}</p>
+<p>Location: {{Profile.location}}</p>
+<p>Bio: {{Profile.bio}}</p>
+
+<app-connections [Connections]="following" Title="Following"></app-connections>
+<app-connections [Connections]="followers" Title="Followers"></app-connections>

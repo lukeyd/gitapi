@@ -17,4 +17,14 @@ export class UserService {
     return this.http.get<User[]>(userUrl);
   }
 
+  public Following(user: string): Observable<User[]> {
+    const userUrl: string = this.url + user + '/following';
+    return this.http.get<User[]>(userUrl);
+  }
+
+  public User(user: string): Observable<User> {
+    const userUrl: string = this.url + user;
+    return this.http.get<User>(userUrl);
+  }
+
 }

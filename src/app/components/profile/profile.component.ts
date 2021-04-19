@@ -14,12 +14,16 @@ import { SearchService } from 'src/app/services/search.service';
 export class ProfileComponent implements OnInit {
 
   public followers!: User[];
+  public following!: User[];
+  public Profile!: User;
   constructor(private route: ActivatedRoute){
 
   }
 
   ngOnInit(): void {
     this.followers = this.route.snapshot.data.followers;
+    this.following = this.route.snapshot.data.following;
+    this.Profile = this.route.snapshot.data.profile;
   }
 
 

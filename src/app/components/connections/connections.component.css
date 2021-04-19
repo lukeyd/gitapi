@@ -1,0 +1,9 @@
+.avatar {
+  border-radius:100%;
+  max-width: 30px;
+  max-height: 30px;
+  margin-left: -10px;
+}
+.connections {
+  padding-left: 15px;
+}

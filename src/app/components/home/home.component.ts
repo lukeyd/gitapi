@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   public users!: Observable<SearchResults>;
   public searchForm: FormGroup = new FormGroup({});
+  public Page = 1;
   constructor(private dataService: SearchService, private form: FormBuilder){
 
   }
@@ -24,6 +25,22 @@ export class HomeComponent implements OnInit {
   }
 
   public Search(): void {
-    this.users = this.dataService.User(this.searchForm.controls.search.value);
+    this.Page = 1;
+    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
+  }
+
+  public Previous(): void {
+    this.Page--;
+    if (this.Page < 1){
+      this.Page = 1;
+    }
+    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
+  }
+
+  public Next(): void {
+    this.Page++;
+
+    console.log(this.Page);
+    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
   }
 }

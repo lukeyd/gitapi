@@ -14,12 +14,13 @@ export class SearchService {
   constructor(private http: HttpClient) { }
 
 
-  public User(user: string): Observable<SearchResults> {
+  public User(user: string, pageNumber: number): Observable<SearchResults> {
     const userUrl: string = this.url + '/users';
 
     const p = new HttpParams().set('q', user);
 
-    return this.http.get<SearchResults>(userUrl, {params: p});
+
+    return this.http.get<SearchResults>(userUrl, {params: {q: user, page: pageNumber.toString()}});
 
   }
 }

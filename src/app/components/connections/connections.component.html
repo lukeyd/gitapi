@@ -1,0 +1,18 @@
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      {{Title}}
+    </h5>
+    <p class="card-text connections">
+        <ng-container *ngFor="let user of Connections; index as i">
+          <img [src]="user.avatar_url" class="avatar" *ngIf="i < 4">
+        </ng-container>
+        <ng-container *ngIf="Connections.length > 4">
+          +{{Connections.length - 4}}
+        </ng-container>
+
+    </p>
+  </div>
+</div>
+

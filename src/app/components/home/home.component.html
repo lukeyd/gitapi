@@ -7,10 +7,12 @@
       </div>
     </div>
  </form>
+ <p>{{(users | async)?.total_count}} found </p>
   <div class="card-group">
     <ng-container *ngFor="let user of (users  | async)?.items">
       <app-user-card [UserInfo]='user'></app-user-card>
     </ng-container>
   </div>
-
+  <button class="btn btn-outline-secondary" type="button" (click)="Previous()">Previous</button>
+  <button class="btn btn-outline-secondary" type="button" (click)="Next()">Next</button>
 </div>
