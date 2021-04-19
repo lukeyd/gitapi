@@ -7,12 +7,12 @@
       </div>
     </div>
  </form>
- <p>{{(users | async)?.total_count}} found </p>
-  <div class="card-group">
-    <ng-container *ngFor="let user of (users  | async)?.items">
+ <p *ngIf="users">{{users?.total_count}} found </p>
+  <div class="card-group" *ngIf="users">
+    <ng-container *ngFor="let user of users.items">
       <app-user-card [UserInfo]='user'></app-user-card>
     </ng-container>
   </div>
-  <button class="btn btn-outline-secondary" type="button" (click)="Previous()">Previous</button>
-  <button class="btn btn-outline-secondary" type="button" (click)="Next()">Next</button>
+  <button class="btn btn-outline-secondary" type="button" (click)="Previous()" *ngIf="users != null && users.total_count > 30">Previous</button>
+  <button class="btn btn-outline-secondary" type="button" (click)="Next()" *ngIf="users != null && users.total_count > 30">Page {{Page + 1}}</button>
 </div>

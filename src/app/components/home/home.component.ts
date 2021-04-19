@@ -11,7 +11,7 @@ import { SearchService } from 'src/app/services/search.service';
 })
 export class HomeComponent implements OnInit {
 
-  public users!: Observable<SearchResults>;
+  public users!: SearchResults;
   public searchForm: FormGroup = new FormGroup({});
   public Page = 1;
   constructor(private dataService: SearchService, private form: FormBuilder){
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   public Search(): void {
     this.Page = 1;
-    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
+    this.search(this.searchForm.controls.search.value, this.Page);
   }
 
   public Previous(): void {
@@ -34,13 +34,19 @@ export class HomeComponent implements OnInit {
     if (this.Page < 1){
       this.Page = 1;
     }
-    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
+    this.search(this.searchForm.controls.search.value, this.Page);
   }
 
   public Next(): void {
     this.Page++;
 
     console.log(this.Page);
-    this.users = this.dataService.User(this.searchForm.controls.search.value, this.Page);
+    this.search(this.searchForm.controls.search.value, this.Page);
+  }
+
+  private search(user: string, page: number): void {
+    this.dataService.User(user, page).subscribe( (results: SearchResults) => {
+      this.users = results;
+    });
   }
 }

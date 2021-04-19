@@ -10,6 +10,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { HomeComponent } from './components/home/home.component';
 import { ConnectionsComponent } from './components/connections/connections.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
