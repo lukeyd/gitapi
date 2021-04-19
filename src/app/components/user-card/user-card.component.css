@@ -1,0 +1,11 @@
+.avatar {
+  border-radius:100%;
+  max-width: 50px;
+  max-height: 50px;
+  padding-right: 8px;
+}
+
+.gitcard {
+  width: 18rem;
+  margin: 8px;
+}
