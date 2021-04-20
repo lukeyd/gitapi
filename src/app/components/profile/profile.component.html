@@ -3,6 +3,5 @@
 <p *ngIf="Profile.location">Location: {{Profile.location}}</p>
 <p *ngIf="Profile.bio">Bio: {{Profile.bio}}</p>
 <p>Repos: {{Profile.public_repos}}</p>
-
 <app-connections [Connections]="following" Title="Following" [Total]="Profile.following"></app-connections>
 <app-connections [Connections]="followers" Title="Followers" [Total]="Profile.followers"></app-connections>
